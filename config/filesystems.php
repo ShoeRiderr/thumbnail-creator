@@ -35,6 +35,11 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'images' => [
+            'driver' => 'local',
+            'root' => storage_path('images'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
@@ -53,6 +58,13 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+        'gcs' => [
+            'driver' => 'gcs',
+            'project_id' => env('GOOGLE_CLOUD_PROJECT_ID'),
+            'key_file' => sprintf('%s/%s', base_path(), env('GOOGLE_CLOUD_KEY_FILE')),
+            'bucket' => env('GOOGLE_CLOUD_BUCKET'),
+        ],
+
     ],
 
     /*
@@ -68,6 +80,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('images') => storage_path('app/images'),
     ],
 
 ];
