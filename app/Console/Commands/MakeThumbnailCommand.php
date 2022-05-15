@@ -35,7 +35,7 @@ class MakeThumbnailCommand extends Command
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function handle()
     {
@@ -43,8 +43,6 @@ class MakeThumbnailCommand extends Command
         
         $storagePath = $this->argument('storagePath') ?? 'gcs';
 
-        $this->thumbnailService->generateThumbnail($imagePath, $storagePath);
-
-        return 0;
+        return $this->thumbnailService->generateThumbnail($imagePath, $storagePath);
     }
 }

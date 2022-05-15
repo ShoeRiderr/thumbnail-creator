@@ -19,7 +19,7 @@ class ThumbnailService
      * @param string $storageType
      * @param int $quality
      *
-     * @return boolean on true
+     * @return string
      * @throws Exception
      * @throws ImagickException
      */
@@ -55,7 +55,7 @@ class ThumbnailService
                 throw new Exception($e->getMessage());
             }
 
-            return true;
+            return 'File' . $fileName . 'stored succesfully';
         }
         else {
             throw new Exception("No valid image provided with {$image}.");
